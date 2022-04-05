@@ -1,4 +1,5 @@
 "use strict";
+//* GET DATABASE
 export async function getDataDB(url, apiKey) {
 	const fetchedData = await fetch(url, {
 		async: true,
@@ -16,6 +17,7 @@ export async function getDataDB(url, apiKey) {
 	console.log(json);
 }
 
+//* GET PAGEINSIGHTS
 export async function getPageInsight(url) {
 	const pageInsightApiKey = "AIzaSyB5TMLidzXZG4KFFbQjWVmGv1bfUYPrDGg";
 	const pageInsightUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://${url}&key=${pageInsightApiKey}`;
@@ -33,3 +35,4 @@ export async function getCarbonMetrics(url) {
 
 	console.log(json);
 }
+// https://api.websitecarbon.com/
