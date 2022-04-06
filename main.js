@@ -1,13 +1,15 @@
 "use strict";
 
-import { getDataDB, getPageInsight, getCarbonMetrics } from "./js/api";
+import { getPageInsight, getCarbonMetrics } from "./js/api";
+import { postHandler, getDataDB } from "./js/postDB";
+async function init() {
+	//getDataDB(url, apiKey);
 
-//* DATABASE CREDENTIALS
-const url = "https://advice-95b4.restdb.io/rest/url-db";
-const apiKey = "624bef0c67937c128d7c94e3";
+	// getPageInsight("designbymagnus.dk");
 
-//getDataDB(url, apiKey);
+	// POST Metrics
+	const metrics = await getCarbonMetrics("designbymagnus.dk", "Porn");
+	postHandler(metrics);
+}
 
-// getPageInsight("https://www.kea.dk");
-
-// getCarbonMetrics("kea.dk");
+init();
