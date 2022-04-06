@@ -4,7 +4,10 @@
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- <link rel="stylesheet" href="/sass/main.scss" /> -->
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet" />
 		<title>Advice A/S Carbon Calculator</title>
 	</head>
 	<body>
@@ -15,27 +18,29 @@
 			<section id="section1">
 				<div class="section_div">
 					<form action="">
-						<div class="form_group">
-							<span>https://</span>
-							<label for="url">
-								<input type="text" name="url" id="url" placeholder="kea.dk" />
-							</label>
+						<div class="form_input">
+							<div class="form_group">
+								<span>https://</span>
+								<label for="url">
+									<input class="form-field" type="text" name="url" id="url" placeholder="kea.dk" />
+								</label>
+							</div>
+							<label for="industry"></label>
+							<select name="industry" id="industry" required>
+								<option value="">Your industry..</option>
+								<option value="agriculture">Agriculture / Food industry</option>
+								<option value="financial">The financial sector</option>
+								<option value="clothing">The clothing and fashion industry</option>
+								<option value="tech">The tech and data industry</option>
+								<option value="construction">The construction industry</option>
+								<option value="transport">The transport sector</option>
+								<option value="Culture">Culture, sports and the entertainment industry</option>
+								<option value="hotel">The hotel and restaurant industry</option>
+								<option value="energy">The energy sector</option>
+								<option value="grocery">Grocery store</option>
+								<option value="Other">Other</option>
+							</select>
 						</div>
-						<label for="industry"></label>
-						<select name="industry" id="industry" required>
-							<option value="">Your industry</option>
-							<option value="agriculture">Agriculture / Food industry</option>
-							<option value="financial">The financial sector</option>
-							<option value="clothing">The clothing and fashion industry</option>
-							<option value="tech">The tech and data industry</option>
-							<option value="construction">The construction industry</option>
-							<option value="transport">The transport sector</option>
-							<option value="Culture">Culture, sports and the entertainment industry</option>
-							<option value="hotel">The hotel and restaurant industry</option>
-							<option value="energy">The energy sector</option>
-							<option value="grocery">Grocery store</option>
-							<option value="Other">Other</option>
-						</select>
 						<button>Calculate my carbon</button>
 					</form>
 					<figure>
@@ -56,20 +61,22 @@
 							<span id="total_rank"></span>
 						</p>
 					</div>
-					<div>
+					<div class="rank_color">
 						<div id="rank_color"></div>
 						<p>This is superb</p>
 					</div>
 				</div>
 
 				<div id="carbon_facts">
-					<div>
+					<div class="text">
 						<p>It takes 4 seconds to load the page, that consists 117 mb</p>
 					</div>
-					<div>
+					<span></span>
+					<div class="text">
 						<p id="emmission_text">The emmission of loading this site is xx kg CO2</p>
 					</div>
-					<div>
+					<span></span>
+					<div class="text">
 						<p>This is the same as driving 30 km in an old Mustang</p>
 					</div>
 				</div>
