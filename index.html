@@ -1,200 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <header>
-      <h1>The Carbon Calculator</h1>
-    </header>
-    <main>
-      <section id="section1">
-        <form action="">
-          <div class="form_group">
-            <span>https://</span>
-            <label for="url">
-              <input type="text" name="url" id="url" placeholder="kea.dk" />
-            </label>
-          </div>
-          <label for="industry"></label>
-          <select name="industry" id="industry" required>
-            <option value="">..</option>
-            <option value="agriculture">Agriculture / Food industry</option>
-            <option value="financial">The financial sector</option>
-            <option value="clothing">The clothing and fashion industry</option>
-            <option value="tech">The tech and data industry</option>
-            <option value="construction">The construction industry</option>
-            <option value="transport">The transport sector</option>
-            <option value="Culture">
-              Culture, sports and the entertainment industry
-            </option>
-            <option value="hotel">The hotel and restaurant industry</option>
-            <option value="energy">The energy sector</option>
-            <option value="grocery">Grocery store</option>
-            <option value="Other">Other</option>
-          </select>
-          <button>Calculate my carbon</button>
-        </form>
-        <figure>
-          <img src="" alt="This is the planet. Save it" />
-        </figure>
-      </section>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="/sass/main.scss" /> -->
+		<title>Advice A/S Carbon Calculator</title>
+	</head>
+	<body>
+		<header>
+			<h1>The Carbon Calculator</h1>
+		</header>
+		<main>
+			<section id="section1">
+				<div class="section_div">
+					<form action="">
+						<div class="form_group">
+							<span>https://</span>
+							<label for="url">
+								<input type="text" name="url" id="url" placeholder="kea.dk" />
+							</label>
+						</div>
+						<label for="industry"></label>
+						<select name="industry" id="industry" required>
+							<option value="">Your industry</option>
+							<option value="agriculture">Agriculture / Food industry</option>
+							<option value="financial">The financial sector</option>
+							<option value="clothing">The clothing and fashion industry</option>
+							<option value="tech">The tech and data industry</option>
+							<option value="construction">The construction industry</option>
+							<option value="transport">The transport sector</option>
+							<option value="Culture">Culture, sports and the entertainment industry</option>
+							<option value="hotel">The hotel and restaurant industry</option>
+							<option value="energy">The energy sector</option>
+							<option value="grocery">Grocery store</option>
+							<option value="Other">Other</option>
+						</select>
+						<button>Calculate my carbon</button>
+					</form>
+					<figure>
+						<img src="/public/assets/earth.svg" alt="This is the planet. Save it" />
+					</figure>
+				</div>
+			</section>
 
-      <section id="section2">
-        <div id="carbon_score">
-          <div>
-            <h2>Your carbon result:</h2>
-          </div>
-          <div>
-            <h2>Rank</h2>
-            <p id="rank_score">
-              <span id="specific_rank"></span> out of
-              <span id="total_rank"></span>
-            </p>
-          </div>
-          <div>
-            <div id="rank_color"></div>
-            <p>This is superb</p>
-          </div>
-        </div>
+			<section id="section2">
+				<div id="carbon_score">
+					<div>
+						<h2>Your carbon result:</h2>
+					</div>
+					<div>
+						<h2>Rank</h2>
+						<p id="rank_score">
+							<span id="specific_rank"></span> out of
+							<span id="total_rank"></span>
+						</p>
+					</div>
+					<div>
+						<div id="rank_color"></div>
+						<p>This is superb</p>
+					</div>
+				</div>
 
-        <div id="carbon_facts">
-          <div>
-            <p>It takes 4 seconds to load the page, that consists 117 mb</p>
-          </div>
-          <div>
-            <p id="emmission_text">
-              The emmission of loading this site is xx kg CO2
-            </p>
-          </div>
-          <div>
-            <p>This is the same as driving 30 km in an old Mustang</p>
-          </div>
-        </div>
+				<div id="carbon_facts">
+					<div>
+						<p>It takes 4 seconds to load the page, that consists 117 mb</p>
+					</div>
+					<div>
+						<p id="emmission_text">The emmission of loading this site is xx kg CO2</p>
+					</div>
+					<div>
+						<p>This is the same as driving 30 km in an old Mustang</p>
+					</div>
+				</div>
 
-        <div id="more_details">
-          <div id="top3">
-            <h3>Top 3 in your industry</h3>
-            <figure>
-              <img src="" alt="" />
-              <p>Tuborg</p>
-            </figure>
-            <figure>
-              <img src="" alt="" />
-              <p>Carlsberg</p>
-            </figure>
-            <figure>
-              <img src="" alt="" />
-              <p>Mikkeller</p>
-            </figure>
-          </div>
+				<div id="more_details">
+					<div id="top3">
+						<h3>Top 3 in your industry</h3>
+						<div class="top3_content">
+							<figure>
+								<img src="/public/assets/man.svg" alt="" />
+								<p>Tuborg</p>
+							</figure>
 
-          <div id="more">
-            <h3>Want to see more details</h3>
-            <p>See how you can cut the emission of CO2 with a few changes</p>
-            <button>Calculate my carbon</button>
-          </div>
-        </div>
-      </section>
+							<figure>
+								<img src="/public/assets/man.svg" alt="" />
+								<p>Carlsberg</p>
+							</figure>
 
-      <section id="section3">
-        <h2>Your carbon result:</h2>
-        <div>
-          <p>Your web-host is <span id="host_color"></span></p>
-        </div>
-        <div>
-       
-          <div>
-             <label for="percentage">Reduce amount of images</label>
-            <div class="range-wrap">
-              <input
-                type="range"
-                step=".01"
-                min="0"
-                max="1"
-                value=".2"
-                id="percentage"
-                name="percentage"
-              />
-          </div>
-        </div>
+							<figure>
+								<img src="/public/assets/man.svg" alt="" />
+								<p>Mikkeller</p>
+							</figure>
+						</div>
+					</div>
 
-        <fieldset class="reduce">
-            <ul role="list" class="controls">
-             
-              <li>
-                <label for="reduce_img_file">
-                  <input
-                    id="reduce_img_file"
-                    type="radio"
-                    name="reduce"
-                    value="reduce_img_file"
-                  />
-                 Reduce image file size
-                </label>
-              </li>
-                    <li>
-                <label for="reduce_img_size">
-                  <input
-                    id="reduce_img_size"
-                    type="radio"
-                    name="reduce"
-                    value="reduce_img_size"
-                   
-                  />
-                 Reduce actual image size
-                </label>
-              </li>      
-              <li>
-                <label for="reduce_video_size">
-                  <input
-                    id="reduce_video_size"
-                    type="radio"
-                    name="reduce"
-                    value="reduce_video_size"
-                  />
-                 Reduce video size
-                </label>
-              </li>      
-              <li>
-                <label for="minify_css">
-                  <input
-                    id="minify_css"
-                    type="radio"
-                    name="reduce"
-                    value="minify_css"
-                   
-                  />
-                 Minify CSS
-                </label>
-              </li>      
-              <li>
-                <label for="minify_js">
-                  <input
-                    id="minify_js"
-                    type="radio"
-                    name="reduce"
-                    value="minify_js"
-                   
-                  />
-                 Minify JavaScript
-                </label>
-              </li>
-            </ul>
-          </fieldset>
+					<div id="more">
+						<h3>Want to see more details</h3>
+						<p>See how you can cut the emission of CO2 with a few changes</p>
+						<button>Calculate my carbon</button>
+					</div>
+				</div>
+			</section>
 
-          <div>
-            <h2>With these changes the emission of loading the site will go from:</h2>
-            <p><span id="co2_1">xx</span>kg CO2 <span></span>2 <span>xx</span>kg CO2</p>
-          </div>
-      </section>
-    </main>
-    <footer></footer>
+			<section id="section3">
+				<h2>Your carbon result:</h2>
+				<div id="web_host">
+					<p>Your web-host is <span id="host_color">'color'</span></p>
+				</div>
 
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+				<div id="reduce">
+					<div>
+						<label for="percentage">Reduce amount of images</label>
+						<div class="range-wrap">
+							<input type="range" step=".01" min="0" max="1" value=".2" id="percentage" name="percentage" />
+						</div>
+					</div>
+
+					<div class="reduce">
+						<ul role="list" class="controls">
+							<li>
+								<label for="reduce_img_file">
+									<input id="reduce_img_file" type="checkbox" name="reduce" value="reduce_img_file" />
+									Reduce image file size
+								</label>
+							</li>
+							<li>
+								<label for="reduce_img_size">
+									<input id="reduce_img_size" type="checkbox" name="reduce" value="reduce_img_size" />
+									Reduce actual image size
+								</label>
+							</li>
+							<li>
+								<label for="reduce_video_size">
+									<input id="reduce_video_size" type="checkbox" name="reduce" value="reduce_video_size" />
+									Reduce video size
+								</label>
+							</li>
+							<li>
+								<label for="minify_css">
+									<input id="minify_css" type="checkbox" name="reduce" value="minify_css" />
+									Minify CSS
+								</label>
+							</li>
+							<li>
+								<label for="minify_js">
+									<input id="minify_js" type="checkbox" name="reduce" value="minify_js" />
+									Minify JavaScript
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="result">
+					<h2>With these changes the emission of loading the site will go from:</h2>
+					<p><span id="co2_1">xx</span>kg CO2 <span></span>2 <span>xx</span>kg CO2</p>
+				</div>
+			</section>
+		</main>
+		<footer></footer>
+
+		<div id="app"></div>
+		<script type="module" src="/main.js"></script>
+	</body>
 </html>

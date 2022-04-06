@@ -1,4 +1,5 @@
 "use strict";
+import "./sass/main.scss";
 
 import { getDataDB, getPageInsight, getCarbonMetrics } from "./js/api";
 
