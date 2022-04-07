@@ -7,7 +7,7 @@
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Rakkas&display=swap" rel="stylesheet" />
 		<title>Advice A/S Carbon Calculator</title>
 	</head>
 	<body>
@@ -22,7 +22,7 @@
 							<div class="form_group">
 								<span>https://</span>
 								<label for="url">
-									<input class="form-field" type="text" name="url" id="url" placeholder="kea.dk" />
+									<input class="form-field" type="url" name="url" id="url" placeholder="kea.dk" required />
 								</label>
 							</div>
 							<label for="industry"></label>
@@ -54,7 +54,7 @@
 					<div>
 						<h2>Your carbon result:</h2>
 					</div>
-					<div>
+					<div class="rank">
 						<h2>Rank</h2>
 						<p id="rank_score">
 							<span id="specific_rank"></span> out of
@@ -73,7 +73,7 @@
 					</div>
 					<span></span>
 					<div class="text">
-						<p id="emmission_text">The emmission of loading this site is xx kg CO2</p>
+						<p id="emission_text">The emission of loading this site is <br />xx kg CO2</p>
 					</div>
 					<span></span>
 					<div class="text">
@@ -105,7 +105,7 @@
 					<div id="more">
 						<h3>Want to see more details</h3>
 						<p>See how you can cut the emission of CO2 with a few changes</p>
-						<button>Calculate my carbon</button>
+						<button>See more</button>
 					</div>
 				</div>
 			</section>

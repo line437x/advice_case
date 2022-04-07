@@ -22,16 +22,33 @@ h1,
 h2,
 h3,
 h4,
-h5,
+h5 {
+	font-family: typography.$display-font;
+	color: variables.$dark;
+}
 p,
 span,
 input,
 label,
 select {
-	font-family: typography.$display-font;
+	font-family: typography.$paragraph-font;
+	color: variables.$dark;
 }
 h1 {
 	font-size: 3.5rem;
+}
+h2 {
+	font-size: 2.5rem;
+}
+h3 {
+	font-size: 2rem;
+}
+
+p {
+	font-size: 1.1rem;
+}
+#emission_text {
+	font-size: 1.5rem;
 }
 
 ul {
