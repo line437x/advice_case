@@ -3,48 +3,77 @@
 import { getPageInsight, getCarbonMetrics } from "./js/api";
 import { postHandler, getDataDB, getRelevantData } from "./js/databse";
 async function init() {
-	//getDataDB(url, apiKey);
+	const test = document.querySelector("body");
+	test.addEventListener("click", () => {
+		generateFullRapport();
+	});
 
-	// getPageInsight("designbymagnus.dk");
+	let dataExistsFlag;
 
-	// POST Metrics
-	// const metrics = await getCarbonMetrics("designbymagnus.dk", "Porn");
-	// postHandler(metrics);
-
-	// getRelevantData("aaaaa.dk/");
-
-	const url = "designbymagnus.dk";
+	const industry = "Porn";
+	const url = "malteskjoldager.dk";
+	let collectedData;
+	// const url = "designbymagnus.dk";
 
 	//? First step
 	//todo Check for input
 
 	//todo When generate is clicked, get input
 
-	//todo Check if input exists in database
-	const data = await getRelevantData(url);
-	console.log("This is the returned data " + data);
+	//? Check if input exists in database
+	async function checkDataBaseForExistance() {
+		const initialData = await getRelevantData(url);
+		console.log("This is the returned data ", initialData);
 
-	//todo If yes, show relevant data
+		//? If yes, show relevant data
+		if (Object.keys(initialData).length !== 0) {
+			dataExistsFlag = true;
+			// console.log("Data exists");
+		} else {
+			//? If no, GET website carbon data and set flag to false
+			dataExistsFlag = false;
+			collectedData = await getCarbonMetrics(url, industry);
 
-	//todo If no, GET website carbon data and set flag to false
-	//todo Show data
+			// console.log("Fetching Carbon data");
+			// console.log("Collected Data: ", collectedData);
+		}
+		await showDataFirstStep(collectedData);
+	}
+
+	function showDataFirstStep(dataObj) {
+		//todo Show data first step
+		console.log("Showind data, first step", dataObj);
+	}
 
 	//? Second step
 	//todo Check if generate further is clicked
 
-	//todo If flag false
+	async function generateFullRapport() {
+		//todo show LOADING SCREEN
+		//? If flag false
+		if (!dataExistsFlag) {
+			//? Get page insight
+			const pageInsightData = await getPageInsight(url);
 
-	//todo Get page insight
+			// console.log("Full report collected data: ", collectedData);
+			// console.log("Full report page insight data: ", pageInsightData);
 
-	//todo merge carbon + page insight
-
-	//todo POST All data
-
-	//todo show LOADING SCREEN
-
+			//? merge carbon + page insight
+			const finalData = {
+				...collectedData,
+				...pageInsightData,
+			};
+			//? POST All data
+			// console.log("This is the final data: ", finalData);
+			await postHandler(finalData);
+		} else {
+		}
+	}
 	//todo show result
 
 	//todo click share result
+
+	checkDataBaseForExistance();
 }
 
 init();

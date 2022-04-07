@@ -1,17 +1,7 @@
 "use strict";
 
-//* ******************************************** DATABASE METHODS ********************************************
-
 //* ******************************************** EXTERNAL API'S ********************************************
 //* GET PAGEINSIGHTS
-// export async function getPageInsight(url) {
-// 	const pageInsightApiKey = "AIzaSyB5TMLidzXZG4KFFbQjWVmGv1bfUYPrDGg";
-// 	const pageInsightUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://${url}&key=${pageInsightApiKey}`;
-// 	const fetchedData = await fetch("../test.json");
-// 	const json = await fetchedData.json();
-
-// 	console.log(json);
-// }
 
 export async function getPageInsight(url) {
 	const pageInsightApiKey = "AIzaSyB5TMLidzXZG4KFFbQjWVmGv1bfUYPrDGg";
@@ -28,7 +18,7 @@ export async function getPageInsight(url) {
 		images_sum: json.lighthouseResult.audits["resource-summary"].details.items[1].requestCount,
 
 		// Image sum to MB and to 2 decimals
-		sum_images_size: Number((json.lighthouseResult.audits["resource-summary"].details.items[1].transferSize / Math.pow(1024, 2)).toFixed(2)),
+		sum_images_bytes: Number((json.lighthouseResult.audits["resource-summary"].details.items[1].transferSize / Math.pow(1024, 2)).toFixed(2)),
 
 		// Minified JS
 		js_minified: json.lighthouseResult.audits["unminified-javascript"].numericValue,
@@ -53,13 +43,14 @@ export async function getPageInsight(url) {
 		video_sum: json.lighthouseResult.audits["efficient-animated-content"].numericValue,
 	};
 
-	console.table(cleanData);
-	console.log(json);
+	// console.table(cleanData);
+	// console.log(json);
+	return cleanData;
 }
 
 //* GET CARBON METRICS
 export async function getCarbonMetrics(url, industry) {
-	const carbonApi = `https://kea-alt-del.dk/websitecarbon/site/?url=https://${url}`;
+	const carbonApi = `https://kea-alt-del.dk/websitecarbon/site/?url=https://${url}/`;
 	const fetchedData = await fetch(carbonApi);
 	const json = await fetchedData.json();
 
@@ -74,8 +65,8 @@ export async function getCarbonMetrics(url, industry) {
 		//CO2 emitted, renewable and grid combined in g
 		co2_emitted: json.statistics.co2.grid.grams + json.statistics.co2.grid.grams,
 	};
-	console.log(json);
-	console.log(cleanData);
+	// console.log(json);
+	// console.log(cleanData);
 
 	return cleanData;
 }
