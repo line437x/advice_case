@@ -1,13 +1,79 @@
 "use strict";
 
-import { getDataDB, getPageInsight, getCarbonMetrics } from "./js/api";
+import { getPageInsight, getCarbonMetrics } from "./js/api";
+import { postHandler, getDataDB, getRelevantData } from "./js/databse";
+async function init() {
+	const test = document.querySelector("body");
+	test.addEventListener("click", () => {
+		generateFullRapport();
+	});
 
-//* DATABASE CREDENTIALS
-const url = "https://advice-95b4.restdb.io/rest/url-db";
-const apiKey = "624bef0c67937c128d7c94e3";
+	let dataExistsFlag;
 
-//getDataDB(url, apiKey);
+	const industry = "Porn";
+	const url = "malteskjoldager.dk";
+	let collectedData;
+	// const url = "designbymagnus.dk";
 
-// getPageInsight("https://www.kea.dk");
+	//? First step
+	//todo Check for input
 
-// getCarbonMetrics("kea.dk");
+	//todo When generate is clicked, get input
+
+	//? Check if input exists in database
+	async function checkDataBaseForExistance() {
+		const initialData = await getRelevantData(url);
+		console.log("This is the returned data ", initialData);
+
+		//? If yes, show relevant data
+		if (Object.keys(initialData).length !== 0) {
+			dataExistsFlag = true;
+			// console.log("Data exists");
+		} else {
+			//? If no, GET website carbon data and set flag to false
+			dataExistsFlag = false;
+			collectedData = await getCarbonMetrics(url, industry);
+
+			// console.log("Fetching Carbon data");
+			// console.log("Collected Data: ", collectedData);
+		}
+		await showDataFirstStep(collectedData);
+	}
+
+	function showDataFirstStep(dataObj) {
+		//todo Show data first step
+		console.log("Showind data, first step", dataObj);
+	}
+
+	//? Second step
+	//todo Check if generate further is clicked
+
+	async function generateFullRapport() {
+		//todo show LOADING SCREEN
+		//? If flag false
+		if (!dataExistsFlag) {
+			//? Get page insight
+			const pageInsightData = await getPageInsight(url);
+
+			// console.log("Full report collected data: ", collectedData);
+			// console.log("Full report page insight data: ", pageInsightData);
+
+			//? merge carbon + page insight
+			const finalData = {
+				...collectedData,
+				...pageInsightData,
+			};
+			//? POST All data
+			// console.log("This is the final data: ", finalData);
+			await postHandler(finalData);
+		} else {
+		}
+	}
+	//todo show result
+
+	//todo click share result
+
+	checkDataBaseForExistance();
+}
+
+init();
