@@ -5,7 +5,7 @@
 
 export async function getPageInsight(url) {
 	const pageInsightApiKey = "AIzaSyB5TMLidzXZG4KFFbQjWVmGv1bfUYPrDGg";
-	const pageInsightUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://${url}&key=${pageInsightApiKey}`;
+	const pageInsightUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://${url}/&key=${pageInsightApiKey}`;
 
 	const fetchedData = await fetch(pageInsightUrl);
 	const json = await fetchedData.json();
@@ -55,6 +55,7 @@ export async function getCarbonMetrics(url, industry) {
 	const json = await fetchedData.json();
 
 	const cleanData = {
+		name: json.url.substring(8, 9).toUpperCase() + json.url.substring(9, json.url.lastIndexOf(".")),
 		url: json.url,
 		industry: industry,
 		is_green: json.green,
@@ -66,7 +67,7 @@ export async function getCarbonMetrics(url, industry) {
 		co2_emitted: json.statistics.co2.grid.grams + json.statistics.co2.grid.grams,
 	};
 	// console.log(json);
-	// console.log(cleanData);
+	console.log(cleanData.name);
 
 	return cleanData;
 }
