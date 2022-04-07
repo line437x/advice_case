@@ -30,6 +30,9 @@ async function init() {
 		if (Object.keys(initialData).length !== 0) {
 			dataExistsFlag = true;
 			// console.log("Data exists");
+			collectedData = initialData;
+
+			console.log("The object exists: ", collectedData);
 		} else {
 			//? If no, GET website carbon data and set flag to false
 			dataExistsFlag = false;
@@ -68,6 +71,7 @@ async function init() {
 			// console.log("This is the final data: ", finalData);
 			await postHandler(finalData);
 		} else {
+			console.log("Setting full report data with: ", collectedData);
 		}
 	}
 	//todo show result
