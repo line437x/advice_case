@@ -44,7 +44,6 @@ section {
 		border: 1px solid variables.$dark;
 		border-radius: 10px;
 		padding-inline: 1rem;
-		font-size: 1.2rem;
 		.form_group {
 			padding-block: 1rem;
 		}
@@ -52,8 +51,6 @@ section {
 			background-color: transparent;
 			width: 82%;
 			border: none;
-			font-size: 1.2rem;
-			// background-color: whitesmoke;
 		}
 		#url:focus {
 			outline: none;
@@ -64,28 +61,8 @@ section {
 			background-color: transparent;
 			border: none;
 			border-block-start: 1px solid variables.$dark;
-			font-size: 1.2rem;
 		}
 	}
-
-	// #industry,
-	// .form_group {
-	// 	border-radius: 10px;
-	// 	height: 2rem;
-	// 	background-color: transparent;
-	// 	border: 1px solid variables.$dark;
-	// 	padding-inline: 0.5rem;
-	// }
-	// .form_group {
-	// 	display: flex;
-	// 	align-items: center;
-	// 	width: 100%;
-	// 	#url {
-	// 		background-color: transparent;
-	// 		border: none;
-	// 		margin-inline-start: 1rem;
-	// 	}
-	// }
 }
 
 #section2 {
@@ -98,6 +75,9 @@ section {
 		justify-items: center;
 		align-items: center;
 		padding-block-end: 4rem;
+		h2 {
+			justify-self: start;
+		}
 		.rank_color {
 			text-align: center;
 			#rank_color {
@@ -129,7 +109,6 @@ section {
 		text-align: center;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		// justify-content: space-between;
 		padding-block-start: 4rem;
 		#top3 {
 			.top3_content {
