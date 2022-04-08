@@ -54,9 +54,12 @@ export async function getCarbonMetrics(url, industry) {
 	const fetchedData = await fetch(carbonApi);
 	const json = await fetchedData.json();
 
+	const regex = /www./i;
+	const trimmedUrl = json.url.replace(regex, "");
+
 	const cleanData = {
-		name: json.url.substring(8, 9).toUpperCase() + json.url.substring(9, json.url.lastIndexOf(".")),
-		url: json.url,
+		url: trimmedUrl,
+		name: trimmedUrl.substring(8, 9).toUpperCase() + trimmedUrl.replace(regex, "").slice(9, trimmedUrl.indexOf(".")),
 		industry: industry,
 		is_green: json.green,
 		//Size in MB
@@ -67,7 +70,7 @@ export async function getCarbonMetrics(url, industry) {
 		co2_emitted: json.statistics.co2.grid.grams + json.statistics.co2.grid.grams,
 	};
 	// console.log(json);
-	console.log(cleanData.name);
+	console.log(cleanData);
 
 	return cleanData;
 }

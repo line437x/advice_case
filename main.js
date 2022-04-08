@@ -64,12 +64,6 @@ async function init() {
 			// console.log("Fetching Carbon data");
 			// console.log("Collected Data: ", collectedData);
 		}
-		await showDataFirstStep(collectedData);
-	}
-
-	function showDataFirstStep(dataObj) {
-		//todo Show data first step
-		// console.log("Showind data, first step", dataObj);
 	}
 
 	//? Second step

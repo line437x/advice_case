@@ -1,8 +1,6 @@
 import { getIndustryList } from "./databse";
 
 export async function displayFirstStep(dataObj, industryList) {
-	console.log("Display data");
-
 	//? Display loadtime
 	const loadtime = document.querySelector("#loadtime span");
 
@@ -14,6 +12,11 @@ export async function displayFirstStep(dataObj, industryList) {
 
 	//? Display compare
 
+	//? Display Color Rank
+	const colorRank = document.querySelector("#rank_color");
+	const rankHNumber = Number(dataObj.cleaner_than);
+	colorRank.style.background = `hsl(${rankHNumber},86%,52%)`;
+
 	//? Display Rank
 	const rank = document.querySelector("#specific_rank");
 	const totalRank = document.querySelector("#total_rank");
@@ -23,10 +26,15 @@ export async function displayFirstStep(dataObj, industryList) {
 
 	//? Display Top Three
 	const topThree = document.querySelectorAll(".top3_content figure");
-
 	topThree.forEach((place, idx) => {
 		const position = place.querySelector(`p`);
-		position.textContent = industryList[idx].name;
+		if (industryList.length !== 0) {
+			if (industryList[idx]) {
+				position.textContent = industryList[idx].name;
+			} else {
+				position.textContent = "-";
+			}
+		}
 	});
 }
 
@@ -36,7 +44,6 @@ function checkIfArrayContainsObject(obj, objList) {
 
 		return indexOfObj;
 	} else {
-		console.log("objectet findes ikke!");
 		//? Indsæt ikke eksisterende objekt i array og sorter
 		objList.unshift(obj);
 
@@ -44,7 +51,6 @@ function checkIfArrayContainsObject(obj, objList) {
 			return a.co2_emitted - b.co2_emitted;
 		});
 		const indexOfObj = objList.findIndex((el) => el.url === obj.url) + 1;
-		console.log(indexOfObj);
 
 		return indexOfObj;
 	}

@@ -60,6 +60,7 @@ export async function getRelevantData(queryUrl) {
 
 	const json = await fetchedData.json();
 	console.log(url);
+	console.log(json);
 	if (json.length !== 0) {
 		console.log("Den her URL findes!");
 		const data = { ...json[0] };
