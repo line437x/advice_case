@@ -53,6 +53,16 @@ p,
 	font-size: 1.5rem;
 }
 
+#web_host p,
+#web_host span {
+	font-size: 2rem;
+	font-family: typography.$display-font;
+}
+#result p,
+#result span {
+	font-size: 3rem;
+}
+
 ul {
 	list-style: none;
 }
