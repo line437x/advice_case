@@ -12,12 +12,16 @@ section {
 }
 
 #section1 {
+	display: grid;
+	grid-auto-rows: minmax(min-content, max-content);
 	h1 {
 		text-align: center;
-		margin-top: 3rem;
+		padding-block-start: 3rem;
+		height: 10vh;
 	}
 	.section_div {
-		margin-block-start: 10rem;
+		height: 90vh;
+		align-self: center;
 		display: flex;
 		justify-content: center;
 		align-items: center;
