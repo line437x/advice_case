@@ -17,12 +17,12 @@
 		<main>
 			<section id="section1">
 				<div class="section_div">
-					<form action="">
+					<form class="url-input">
 						<div class="form_input">
 							<div class="form_group">
 								<span>https://</span>
 								<label for="url">
-									<input class="form-field" type="url" name="url" id="url" placeholder="kea.dk" required />
+									<input class="form-field" type="text" name="url" id="url" placeholder="kea.dk" required />
 								</label>
 							</div>
 							<label for="industry"></label>
@@ -34,14 +34,14 @@
 								<option value="tech">The tech and data industry</option>
 								<option value="construction">The construction industry</option>
 								<option value="transport">The transport sector</option>
-								<option value="Culture">Culture, sports and the entertainment industry</option>
+								<option value="culture">Culture, sports and the entertainment industry</option>
 								<option value="hotel">The hotel and restaurant industry</option>
 								<option value="energy">The energy sector</option>
 								<option value="grocery">Grocery store</option>
-								<option value="Other">Other</option>
+								<option value="other">Other</option>
 							</select>
 						</div>
-						<button>Calculate my carbon</button>
+						<button type="submit" name="submit">Calculate my carbon</button>
 					</form>
 					<figure>
 						<img src="/public/assets/earth.svg" alt="This is the planet. Save it" />
@@ -49,7 +49,7 @@
 				</div>
 			</section>
 
-			<section id="section2">
+			<section id="section2" class="hidden">
 				<div id="carbon_score">
 					<div>
 						<h2>Your carbon result:</h2>
@@ -57,8 +57,8 @@
 					<div class="rank">
 						<h3>Rank</h3>
 						<p id="rank_score">
-							<span id="specific_rank">30</span> out of
-							<span id="total_rank">100</span>
+							<span id="specific_rank">-</span> out of
+							<span id="total_rank">-</span>
 						</p>
 					</div>
 					<div class="rank_color">
@@ -68,16 +68,21 @@
 				</div>
 
 				<div id="carbon_facts">
-					<div class="text">
-						<p>It takes 4 seconds to load the page, that consists 117 mb</p>
+					<div id="loadtime" class="text">
+						<p>
+							You page consists of <span><strong>117</strong></span> mb
+						</p>
 					</div>
-					<span></span>
-					<div class="text">
-						<p id="emission_text">The emission of loading this site is <br />xx kg CO2</p>
+					<span class="deco_line"></span>
+					<div id="emission" class="text">
+						<p id="emission_text">
+							The emission of loading this site is <br />
+							<strong><span>xx</span>g</strong> CO2
+						</p>
 					</div>
-					<span></span>
-					<div class="text">
-						<p>This is the same as driving 30 km in an old Mustang</p>
+					<span class="deco_line"></span>
+					<div id="compare" class="text">
+						<p>This is the same as driving <span>30</span> km in an old Mustang</p>
 					</div>
 				</div>
 
@@ -86,18 +91,15 @@
 						<h3>Top 3 in your industry</h3>
 						<div class="top3_content">
 							<figure>
-								<img src="/public/assets/man.svg" alt="" />
-								<p>Tuborg</p>
+								<p>-</p>
 							</figure>
 
 							<figure>
-								<img src="/public/assets/man.svg" alt="" />
-								<p>Carlsberg</p>
+								<p>-</p>
 							</figure>
 
 							<figure>
-								<img src="/public/assets/man.svg" alt="" />
-								<p>Mikkeller</p>
+								<p>-</p>
 							</figure>
 						</div>
 					</div>
@@ -105,12 +107,12 @@
 					<div id="more">
 						<h3>Want to see more details</h3>
 						<p>See how you can cut the emission of CO2 with a few changes</p>
-						<button>See more</button>
+						<button data-generateFull>See more</button>
 					</div>
 				</div>
 			</section>
 
-			<section id="section3">
+			<section id="section3" class="hidden">
 				<h2>Your carbon result:</h2>
 				<div id="web_host">
 					<p>Your web-host is <span id="host_color">'color'</span></p>

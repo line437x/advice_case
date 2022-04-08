@@ -21,8 +21,8 @@ export function postHandler(payload) {
 			},
 		});
 
-		const test = await JSONData.json();
-		console.log(test);
+		// const test = await JSONData.json();
+		// console.log(test);
 	}
 }
 
@@ -59,9 +59,10 @@ export async function getRelevantData(queryUrl) {
 	});
 
 	const json = await fetchedData.json();
-
+	console.log(url);
+	console.log(json);
 	if (json.length !== 0) {
-		console.log("DEn her URL findes!");
+		console.log("Den her URL findes!");
 		const data = { ...json[0] };
 		return data;
 	} else {
@@ -69,4 +70,26 @@ export async function getRelevantData(queryUrl) {
 
 		return {};
 	}
+}
+
+export async function getIndustryList(industry) {
+	const industryQuery = `https://advice-95b4.restdb.io/rest/url-db?q={"industry":"${industry}"}&sort=co2_emitted`;
+	const apiKey = "624bef0c67937c128d7c94e3";
+
+	const fetchedData = await fetch(industryQuery, {
+		async: true,
+		crossDomain: true,
+		url: industryQuery,
+		method: "get",
+		headers: {
+			"content-type": "application/json",
+			"x-apikey": apiKey,
+			"cache-control": "no-cache",
+		},
+	});
+
+	const data = await fetchedData.json();
+	console.log("The industry list is: ", data);
+
+	return data;
 }
