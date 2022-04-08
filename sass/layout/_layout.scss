@@ -142,23 +142,33 @@ section {
 }
 
 #section3 {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-auto-rows: minmax(min-content, max-content);
 	h2 {
 		text-align: center;
 	}
 	#web_host {
-		margin-block-end: 7rem;
+		padding-block-start: 3rem;
+		padding-block-end: 1rem;
+		#host_color {
+			color: variables.$green;
+		}
 	}
 	#reduce {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-		margin-block-end: 7rem;
+		display: grid;
+		justify-content: center;
+		align-items: center;
+		grid-template-columns: 300px 300px;
 		border-block: 1px solid variables.$dark;
-		padding-block: 5rem;
+		padding-block: 4rem;
 	}
-	#result p {
-		text-align: center;
+	#result {
+		display: grid;
+		align-items: center;
+		grid-template-columns: 1fr 1fr;
+		padding-block-start: 3rem;
+		h2 {
+			text-align: left;
+		}
 	}
 }
