@@ -1,13 +1,6 @@
 @use "../abstracts/variables";
 @use "../base/typography";
 
-header {
-	margin-top: 3rem;
-	h1 {
-		text-align: center;
-	}
-}
-
 section {
 	height: 100vh;
 }
@@ -19,8 +12,12 @@ section {
 }
 
 #section1 {
+	h1 {
+		text-align: center;
+		margin-top: 3rem;
+	}
 	.section_div {
-		margin-block-start: 12rem;
+		margin-block-start: 10rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -37,7 +34,7 @@ section {
 		img {
 			width: 15rem;
 			height: auto;
-			animation: rotate 50s infinite linear;
+			animation: rotate 60s infinite linear;
 		}
 	}
 	.form_input {
