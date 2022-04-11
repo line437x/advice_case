@@ -3,9 +3,44 @@ import "./sass/main.scss";
 
 import { getPageInsight, getCarbonMetrics } from "./js/api";
 import { postHandler, getDataDB, getRelevantData, getIndustryList } from "./js/databse";
-import { displayFirstStep } from "./js/display";
+import { displayFirstStep, displaySecond } from "./js/display";
+import { imgSlider } from "./js/optimizeInputs";
 async function init() {
 	//? TEST
+	// let test = imgSlider(3, 7.45, 7.51, 9.5);
+	// console.log(test);
+
+	let objTest = {
+		url: "https://lineberner.com/",
+		name: "Lineberner",
+		industry: "agriculture",
+		is_green: true,
+		load_size: 7.513340950012207,
+		cleaner_than: 8,
+		co2_emitted: 9.499065969233634,
+		load_time: 0.73,
+		images_sum: 3,
+		sum_images_bytes: 7.45,
+		js_minified: 0,
+		css_minified: 0,
+		not_webp: 3,
+		webp_opti: [
+			{
+				totalBytes: 3825763,
+				wastedWebpType: 1903605,
+			},
+			{
+				totalBytes: 1764495,
+				wastedWebpType: 1380007,
+			},
+			{
+				totalBytes: 2222575,
+				wastedWebpType: 300417,
+			},
+		],
+		video_sum: 0,
+	};
+	await displaySecond(objTest);
 
 	let dataExistsFlag;
 	let industry;
@@ -37,6 +72,8 @@ async function init() {
 		generateFullRapport();
 		// Remove hidden from section 3
 		document.querySelector("#section3").classList.remove("hidden");
+
+		// displaySecond(collectedData);
 	});
 
 	//? First step

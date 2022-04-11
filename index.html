@@ -111,7 +111,7 @@
 				</div>
 			</section>
 
-			<section id="section3" class="hidden">
+			<section id="section3" class="">
 				<h2>Your carbon result:</h2>
 				<div id="web_host">
 					<p>Your web-host is <span id="host_color">'color'</span></p>
@@ -121,7 +121,8 @@
 					<div>
 						<label for="percentage">Reduce amount of images</label>
 						<div class="range-wrap">
-							<input type="range" step=".01" min="0" max="1" value=".2" id="percentage" name="percentage" />
+							<input type="range" step=".01" min="0" max="1" id="percentage" name="percentage" />
+							<div class="amount"></div>
 						</div>
 					</div>
 
@@ -163,7 +164,7 @@
 
 				<div id="result">
 					<h2>With these changes the emission of loading the site will go from:</h2>
-					<p><span id="co2_1">xx</span>kg CO2 <span></span>2 <span>xx</span>kg CO2</p>
+					<p><span id="co2_1">xx</span>kg CO2 <span></span>to <span class="newNumber">xx</span>kg CO2</p>
 				</div>
 			</section>
 		</main>
