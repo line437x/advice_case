@@ -15,6 +15,18 @@ async function init() {
   // let test = imgSlider(3, 7.45, 7.51, 9.5);
   // console.log(test);
 
+  // Add a listener for when the window resizes
+  window.addEventListener("resize", checkMediaQuery);
+
+  function checkMediaQuery() {
+    if (window.innerWidth < 830) {
+      alert("This page can only be displayed on a screen bigger than 830px.");
+      document.querySelector("main").style.display = "none";
+    } else {
+      document.querySelector("main").style.display = "inline";
+    }
+  }
+
   let objTest = {
     url: "https://lineberner.com/",
     name: "Lineberner",
@@ -81,7 +93,6 @@ async function init() {
     document.querySelector("#section3").classList.remove("hidden");
 
     document.querySelector("#section3").scrollIntoView({ behavior: "smooth" });
-
     // displaySecond(collectedData);
   });
 
