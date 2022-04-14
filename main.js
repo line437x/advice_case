@@ -70,6 +70,7 @@ async function init() {
 
   //? INITIAL SUBMIT
   form.addEventListener("submit", async (e) => {
+    document.querySelector("#spinner").classList.remove("hide");
     e.preventDefault();
     // Get input
     url = "www." + form.elements.url.value;
@@ -82,19 +83,34 @@ async function init() {
     const industryList = await getIndustryList(industry);
     await displayFirstStep(collectedData, industryList);
 
-    document.querySelector("#section2").scrollIntoView({ behavior: "smooth" });
+    scrollToSection2();
   });
+
+  function scrollToSection2() {
+    document.querySelector("#section2").scrollIntoView({ behavior: "smooth" });
+    document.querySelector("#spinner").classList.add("hide");
+  }
+
+  // document.querySelector("#spinner").classList.add("hide");
 
   //? GENERATE FULL REPORT
   const generateFullBtn = document.querySelector("[data-generateFull]");
-  generateFullBtn.addEventListener("click", () => {
-    generateFullRapport();
+  generateFullBtn.addEventListener("click", async () => {
+    document.querySelector("#spinner2").classList.remove("hide");
+
+    await generateFullRapport();
     // Remove hidden from section 3
     document.querySelector("#section3").classList.remove("hidden");
 
-    document.querySelector("#section3").scrollIntoView({ behavior: "smooth" });
-    // displaySecond(collectedData);
+    scrollToSection3();
   });
+
+  function scrollToSection3() {
+    // displaySecond(collectedData);
+    document.querySelector("#section3").scrollIntoView({ behavior: "smooth" });
+
+    document.querySelector("#spinner2").classList.add("hide");
+  }
 
   //? First step
   //todo Check for input
