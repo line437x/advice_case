@@ -18,6 +18,7 @@ async function init() {
   // Add a listener for when the window resizes
   window.addEventListener("resize", checkMediaQuery);
 
+  // set alert
   function checkMediaQuery() {
     if (window.innerWidth < 830) {
       alert("This page can only be displayed on a screen bigger than 830px.");
@@ -76,12 +77,13 @@ async function init() {
     url = "www." + form.elements.url.value;
     industry = form.elements.industry.value;
 
-    // Remove hidden from section 2
-    document.querySelector("#section2").classList.remove("hidden");
     await checkDataBaseForExistance();
 
     const industryList = await getIndustryList(industry);
     await displayFirstStep(collectedData, industryList);
+
+    // Remove hidden from section 2
+    document.querySelector("#section2").classList.remove("hidden");
 
     scrollToSection2();
   });
