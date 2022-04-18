@@ -10,10 +10,12 @@ export function imgSlider(imgAmount, imgSizeSum, siteSize, co2, originalImgAmoun
 	const imgResult = ((sliderResult / siteSize) * 100 * co2) / 100;
 
 	const result = co2 - imgResult + imgResult;
-	console.log(imgResult, result);
+	// console.log(imgResult, result);
 
 	if (imgResult === 0) {
 		return (siteSize - imgSizeSum).toFixed(2);
+	} else if (imgAmount === originalImgAmount) {
+		return co2.toFixed(2);
 	}
 	return imgResult.toFixed(2);
 }
