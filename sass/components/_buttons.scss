@@ -12,4 +12,11 @@ button {
 	font-family: typography.$display-font;
 	font-size: 1.5rem;
 	margin-block-start: 2rem;
+	cursor: pointer;
+}
+
+button:hover {
+	border: 1px solid variables.$pink;
+	background-color: variables.$pink;
+	color: variables.$primary-color;
 }
