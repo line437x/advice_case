@@ -128,7 +128,7 @@ section {
 
 	#carbon_facts {
 		display: grid;
-		grid-template-columns: 1fr auto 1.5fr auto 1fr;
+		grid-template-columns: 1fr auto 1.5fr;
 		text-align: center;
 		align-items: center;
 		border-block: 1px solid variables.$dark;

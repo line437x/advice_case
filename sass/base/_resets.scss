@@ -6,6 +6,11 @@
 	box-sizing: border-box;
 }
 
+// fjerner default inline på element
+body > main:nth-child(2) {
+	display: grid;
+}
+
 main {
 	display: grid;
 	grid-template-columns: minmax(0.5rem, 1fr) minmax(auto, 1200px) minmax(0.5rem, 1fr);
@@ -57,24 +62,25 @@ p,
 	#carbon_facts p {
 		font-size: 1.5rem;
 	}
-
-	#web_host p,
-	#web_host span {
-		font-size: 2rem;
-		font-family: typography.$display-font;
-	}
-	#web_host span {
-		font-size: 2.5rem;
-	}
-	#result p,
-	#result span {
-		font-size: 3rem;
-	}
-
-	ul {
-		list-style: none;
-	}
 }
+
+#web_host p,
+#web_host span {
+	font-size: 2rem;
+	font-family: typography.$display-font;
+}
+#web_host span {
+	font-size: 2.5rem;
+}
+#result p,
+#result span {
+	font-size: 3rem;
+}
+
+ul {
+	list-style: none;
+}
+
 #section2.hidden,
 #section3.hidden {
 	display: none;
