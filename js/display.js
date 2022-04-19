@@ -1,4 +1,5 @@
 import { getIndustryList } from "./databse";
+import { imgSlider } from "./optimizeInputs";
 
 export async function displayFirstStep(dataObj, industryList) {
 	//? Display loadtime
@@ -54,4 +55,45 @@ function checkIfArrayContainsObject(obj, objList) {
 
 		return indexOfObj;
 	}
+}
+
+export function displaySecond(dataObj) {
+	//? Slider Stuffz
+	const slider = document.querySelector("#percentage");
+	const sliderNr = document.querySelector(".amount");
+	const newNumber = document.querySelector(".newNumber");
+	const co2Emitted = document.querySelector("#co2_1");
+	const hostColor = document.querySelector("#host_color");
+
+	sliderNr.textContent = dataObj.images_sum;
+	slider.max = dataObj.images_sum;
+	slider.step = 1;
+	slider.value = dataObj.images_sum;
+	co2Emitted.textContent = dataObj.co2_emitted.toFixed(2);
+	newNumber.textContent = imgSlider(dataObj.images_sum, dataObj.sum_images_bytes, dataObj.load_size, dataObj.co2_emitted, dataObj.images_sum);
+
+	//* HOST
+	switch (dataObj.is_green) {
+		case true:
+			hostColor.style.color = "#61b759";
+			hostColor.textContent = "Green";
+			break;
+		case false:
+			hostColor.style.color = "red";
+			hostColor.textContent = "Not Green";
+
+			break;
+		case "unknown":
+			hostColor.style.color = "grey";
+			hostColor.textContent = "Unknown";
+
+			break;
+	}
+
+	slider.addEventListener("input", () => {
+		const imgAmount = imgSlider(slider.value, dataObj.sum_images_bytes, dataObj.load_size, dataObj.co2_emitted, dataObj.images_sum);
+
+		sliderNr.textContent = slider.value;
+		newNumber.textContent = imgAmount;
+	});
 }

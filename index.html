@@ -46,6 +46,11 @@
 						<img src="/public/assets/earth.svg" alt="This is the planet. Save it" />
 					</figure>
 				</div>
+				<div id="spinner" class="hide">
+					<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+						<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+					</svg>
+				</div>
 			</section>
 
 			<section id="section2" class="hidden">
@@ -106,7 +111,15 @@
 					<div id="more">
 						<h3>Want to see more details</h3>
 						<p>See how you can cut the emission of CO2 with a few changes</p>
-						<button data-generateFull>See more</button>
+						<div id="generate">
+							<button data-generateFull>See more</button>
+
+							<div id="spinner2" class="hide">
+								<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+									<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+								</svg>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -121,7 +134,8 @@
 					<div>
 						<label for="percentage">Reduce amount of images</label>
 						<div class="range-wrap">
-							<input type="range" step=".01" min="0" max="1" value=".2" id="percentage" name="percentage" />
+							<input type="range" step=".01" min="0" max="1" id="percentage" name="percentage" />
+							<div class="amount"></div>
 						</div>
 					</div>
 
@@ -163,7 +177,11 @@
 
 				<div id="result">
 					<h2>With these changes the emission of loading the site will go from:</h2>
+
+					<p><span id="co2_1">xx</span>g CO2 <span></span>to <span class="newNumber">xx</span>g CO2</p>
+
 					<p><span id="co2_1">xx</span>kg CO2 <span></span>to <span>xx</span>kg CO2</p>
+
 				</div>
 			</section>
 		</main>

@@ -4,7 +4,6 @@ export function postHandler(payload) {
 	const url = "https://advice-95b4.restdb.io/rest/url-db";
 	const apiKey = "624bef0c67937c128d7c94e3";
 
-	console.log(payload);
 	POST(payload, url, apiKey);
 
 	async function POST(payload, url, apikey) {
@@ -59,14 +58,12 @@ export async function getRelevantData(queryUrl) {
 	});
 
 	const json = await fetchedData.json();
-	console.log(url);
-	console.log(json);
 	if (json.length !== 0) {
-		console.log("Den her URL findes!");
+		// console.log("Den her URL findes!");
 		const data = { ...json[0] };
 		return data;
 	} else {
-		console.log("Den her url eksisterer ikke");
+		// console.log("Den her url eksisterer ikke");
 
 		return {};
 	}
@@ -89,7 +86,7 @@ export async function getIndustryList(industry) {
 	});
 
 	const data = await fetchedData.json();
-	console.log("The industry list is: ", data);
+	// console.log("The industry list is: ", data);
 
 	return data;
 }
